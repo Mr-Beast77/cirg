@@ -1,5 +1,13 @@
+pipe:
+  name: Build Site and Validate Links
+  steps:
+    - image: ubuntu:20.04
+      build_script: cat /etc/os*
+    - image: alpine:edge
+      validate_script: cat /etc/os*
+
 task:
     name: source t
     container:
         image: ubuntu:20.04
-    run_script: source t
+    t_script: source t

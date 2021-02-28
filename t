@@ -1,5 +1,2 @@
 #!/bin/bash
-df -h
-nproc
-whoami
-free -h
+echo okay
