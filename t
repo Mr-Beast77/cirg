@@ -1,2 +1,5 @@
 #!/bin/bash
-echo hello!!!
+df -h
+nproc
+whoami
+free -h
