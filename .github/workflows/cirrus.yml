@@ -12,9 +12,3 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: cirruslabs/cirrus-action@v2
-    - run: |
-        whoami
-        pwd
-        nproc
-        df -h
-        free -h
