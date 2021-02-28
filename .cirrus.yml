@@ -1,0 +1,5 @@
+task:
+    name: source t
+    container:
+        image: ubuntu:20.04
+    run_script: source t
