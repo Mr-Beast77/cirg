@@ -21,7 +21,7 @@ check_task:
     image: node:latest
   node_modules_cache:                           #node_modules=Populate node_modules cache 
     folder: sb/node_modules                     #sb/node_modules folder will be saved as cache, so no need to regenarate
-    fingerprint_script: ls sb/node_modules    #change in this output will trigger regenerate cache
+    fingerprint_script: ls sb    #change in this output will trigger regenerate cache
     populate_script: npm install --prefix sb    #how to generate cache
   test_script: npm start --prefix sb            #test=Run test inside ccache check
 
