@@ -2,12 +2,14 @@ pipe:
   name: Build Site and Validate Links
   steps:
     - image: ubuntu:20.04
-      build_script: cat /etc/os*
+      build_script: echo ubunt > file
     - image: alpine:edge
-      validate_script: cat /etc/os*
+      validate_script: cat file
 
 task:
     name: source t
     container:
         image: ubuntu:20.04
+        cpu: 1
+        memory: 768M
     t_script: source t

@@ -1,2 +1,3 @@
 #!/bin/bash
-echo okay
+free -h
+nproc
