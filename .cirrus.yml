@@ -24,4 +24,5 @@ check_task:
     fingerprint_script: cat commands.txt    #change in this output will trigger regenerate cache
     populate_script: npm install --prefix sb    #how to generate cache
   test_script: npm start --prefix sb            #test=Run test inside ccache check
+  ok_script: dd if=/dev/zero of=sb/node_modules/testfile bs=10 count=1024000
 
