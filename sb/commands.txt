@@ -17,4 +17,3 @@ setsilent - Enable / disable silent output
 setlinkpreviews - Enable / disable link expansion
 setinteractive - Enable / disable shell interactive flag
 help - Get help
-file - View and edit small text files
