@@ -1,3 +1,2 @@
 #!/bin/bash
-free -h
-nproc
+pwd
