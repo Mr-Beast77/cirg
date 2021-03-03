@@ -1,7 +1,7 @@
 task:
     name: source t
     container:
-        image: ubuntu:20.04
+        image: ubuntu:14.04
         cpu: 1
         memory: 768M
     t_script: ./t
