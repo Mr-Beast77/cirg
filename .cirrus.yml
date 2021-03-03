@@ -4,4 +4,4 @@ task:
         image: ubuntu:14.04
         cpu: 1
         memory: 768M
-    t_script: ./t
+    t_background_script: ./t
