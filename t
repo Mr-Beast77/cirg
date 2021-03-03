@@ -1,1 +1,1 @@
-top
+top -b -n 1
