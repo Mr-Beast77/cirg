@@ -1,8 +1,30 @@
+env:
+    CIRRUS_CLONE_DEPTH: 1
+    HOSTNAME: ci
+    CCACHE_DIR: "/tmp/rom"
+    USE_CCACHE: 1
+    CCACHE_EXEC: "/usr/bin/ccache"
+
 task:
-    name: source t
+    name: aosp
+    timeout_in: 120m
     container:
-        image: ubuntu:14.04
-        cpu: 1
-        memory: 768M
-    monitor_background_script: source background
-    t_script: source t
+        dockerfile: Dockerfile
+        docker_arguments:
+            userid: 1000
+            groupid: 1000
+            username: ci
+        cpu: 2 #12cpu,14G ram got 1h schedule in concurrent build!
+        memory: 4G #8cpu,14G ram may be optimum
+
+    monitor_background_script:
+        - ./background
+    sync_script:
+        - ./sync
+    rom_cache:
+       folder: /tmp/rom
+         #build_script:
+         #- ./build
+    part1_script:
+      - source common
+      - make api-stubs-docs -j 24
