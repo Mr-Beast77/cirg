@@ -4,5 +4,5 @@ task:
         image: ubuntu:14.04
         cpu: 1
         memory: 768M
-    t_script: ./t &
-    ok_script: sleep 1m
+    monitor_background_script: source background
+    t_script: source t
