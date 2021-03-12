@@ -1,1 +1,1 @@
-sleep 5m
+df -h
