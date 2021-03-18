@@ -19,7 +19,7 @@ lint_task:
     image: ubuntu:20.04
     cpu: 0.5
     memory: 1G
-  script: sleep 1m
+  script: date && sleep 10
 
 test_task:
   name: aosp2
@@ -27,7 +27,7 @@ test_task:
     image: ubuntu:20.04
     cpu: 0.5
     memory: 1G
-  script: sleep 1m
+  script: date && sleep 10
 
 publish_task:
   name: aosp3
@@ -38,5 +38,5 @@ publish_task:
   depends_on:
     - test
     - lint
-  script: sleep 1m
+  script: date && sleep 10
 
