@@ -17,20 +17,26 @@ lint_task:
   name: aosp1
   container:
     image: ubuntu:20.04
-  script: sleep 2m
+    cpu: 0.5
+    memory: 1G
+  script: sleep 1m
 
 test_task:
   name: aosp2
   container:
     image: ubuntu:20.04
-  script: sleep 2m
+    cpu: 0.5
+    memory: 1G
+  script: sleep 1m
 
 publish_task:
   name: aosp3
   container:
     image: ubuntu:20.04
+    cpu: 0.5
+    memory: 1G
   depends_on:
     - test
     - lint
-  script: sleep 2m
+  script: sleep 1m
 
