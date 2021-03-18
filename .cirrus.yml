@@ -18,5 +18,6 @@ test_task:
     - echo pro > test/ok
   test_script:
     - cat test/ok
+    - fallocate -l 10m test.tar.gz
     - apt install curl -y
     - curl -s -X POST --data-binary @test.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
