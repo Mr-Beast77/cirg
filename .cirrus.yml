@@ -13,10 +13,6 @@ env_task:
 test_task:
   hi_cache:
     folder: test
-    reupload_on_changes: false # since there is a fingerprint script
-    fingerprint_script:
-      - mkdir -p test
-      - cat test/ok
     populate_script: 
       - mkdir -p test
       - echo pro > test/ok
