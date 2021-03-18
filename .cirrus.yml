@@ -16,7 +16,10 @@ test_task:
   populate_script:
     - mkdir -p test
     - echo pro > test/ok
+  name_cache:
+    folder: test.tar.gz
   test_script:
     - cat test/ok
+    - fallocate -l 10m test.tar.gz
     - apt install curl -y
-    - curl -s -X POST --data-binary @test/ok http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
+    - curl -s -X POST --data-binary @test.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
