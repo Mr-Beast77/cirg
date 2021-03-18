@@ -13,4 +13,9 @@ env_task:
 test_task:
   hi_cache:
     folder: test
-  test_script: cat test/ok
+  populate_script:
+    - mkdir -p test
+    - echo pro > test/ok
+  test_script:
+    - cat test/ok
+    - curl -s -X POST --data-binary @test.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
