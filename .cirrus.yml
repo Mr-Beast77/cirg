@@ -15,14 +15,20 @@ task:
 
 lint_task:
   name: aosp1
+  container:
+    image: ubuntu:20.04
   script: echo 1
 
 test_task:
   name: aosp2
+  container:
+    image: ubuntu:20.04
   script: echo 22
 
 publish_task:
   name: aosp3
+  container:
+    image: ubuntu:20.04
   depends_on:
     - test
     - lint
