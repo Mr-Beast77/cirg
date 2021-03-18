@@ -14,7 +14,6 @@ test_task:
   ok_cache:
     folder: ok
   test_script:
-    - cat test/ok
     - mkdir -p ok
     - cd ok && fallocate -l 3G test.tar.gz
     - ls -R
