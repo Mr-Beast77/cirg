@@ -10,3 +10,13 @@ env_task:
   name: env task
   script: env
 
+test_task:
+  hi_cache:
+    folder: test
+    reupload_on_changes: false # since there is a fingerprint script
+    fingerprint_script:
+      - cat test/ok
+    populate_script: 
+      - mkdir test
+      - echo pro > test/ok
+  test_script: cat test/ok
