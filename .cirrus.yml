@@ -11,3 +11,20 @@ task:
 
     t_script:
       - source t
+
+
+lint_task:
+  name: aosp1
+  script: echo 1
+
+test_task:
+  name: aosp2
+  script: echo 22
+
+publish_task:
+  name: aosp3
+  depends_on:
+    - test
+    - lint
+  script: echo final
+
