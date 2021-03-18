@@ -2,49 +2,9 @@ env:
     CIRRUS_CLONE_DEPTH: 1
 
 container:
-  image: ubuntu:20.04
+  image: ubuntu:14.04
   cpu: 0.5
   memory: 512M
-
-task:
-    name: aosp
-    timeout_in: 120m
-    container:
-      image: ubuntu:20.04
-      cpu: 2 #12cpu,14G ram got 1h schedule in concurrent build!
-      memory: 4G #8cpu,14G ram may be optimum
-
-    t_script:
-      - source t
-
-
-lint_task:
-  name: aosp1
-  container:
-    image: ubuntu:20.04
-    cpu: 0.5
-    memory: 1G
-  script: date && sleep 1
-
-test_task:
-  name: aosp2
-  container:
-    image: ubuntu:20.04
-    cpu: 0.5
-    memory: 1G
-  script: date && sleep 1
-
-publish_task:
-  name: aosp3
-  container:
-    image: ubuntu:20.04
-    cpu: 0.5
-    memory: 1G
-  depends_on:
-    - test
-    - lint
-  script: date && sleep 1
-
 
 env_task:
   name: env task
