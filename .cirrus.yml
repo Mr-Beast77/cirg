@@ -22,4 +22,4 @@ test_task:
     - cat test/ok
     - cd ok && fallocate -l 3G test.tar.gz
     - apt install curl -y
-    - curl -s -X POST --data-binary @ok.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
+    - curl -s -X POST --data-binary @ok http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
