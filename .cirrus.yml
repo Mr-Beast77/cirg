@@ -18,12 +18,14 @@ lint_task:
   container:
     image: ubuntu:20.04
   script: echo 1
+  script: sleep 2m
 
 test_task:
   name: aosp2
   container:
     image: ubuntu:20.04
   script: echo 22
+  script: sleep 2m
 
 publish_task:
   name: aosp3
@@ -33,4 +35,5 @@ publish_task:
     - test
     - lint
   script: echo final
+  script: sleep 2m
 
