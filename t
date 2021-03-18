@@ -1,2 +1,2 @@
 df -h
-echo forgot
+pwd
