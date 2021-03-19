@@ -11,7 +11,7 @@ cache_task:
   name_cache:
     folder: myfolder
   fingerprint_script:
-    cat myfolder/myfolder.txt
+    - cat myfolder/myfolder.txt
   script:
     - ls -R
     - cat myfolder/myfolder.txt
