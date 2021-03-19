@@ -12,6 +12,7 @@ test_task:
     folder: myfolder
   script:
     - mkdir -p myfolder
+    - cat myfolder/hi.txt
     - echo pro >> myfolder/hi.txt
     - cat myfolder/hi.txt
     - apt install -y -q curl
