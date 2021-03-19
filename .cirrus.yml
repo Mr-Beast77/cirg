@@ -14,8 +14,7 @@ test_task:
   name_cache:
     folder: name
   test_script:
-    - ls -R
     - mkdir -p name
-    - dd if=/dev/zero of=name/hi.img bs=1024 count=1
+    - echo pro > name/hi.txt
     - apt install curl -y
     - curl -s -X POST --data-binary @name http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
