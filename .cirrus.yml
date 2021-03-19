@@ -2,7 +2,7 @@ env:
     CIRRUS_CLONE_DEPTH: 1
 
 container:
-  image: ubuntu:14.04
+  image: ubuntu:20.04
   cpu: 0.5
   memory: 512M
 
