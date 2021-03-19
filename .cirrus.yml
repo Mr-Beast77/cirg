@@ -17,4 +17,4 @@ test_task:
     - echo pro >> why/hi2.txt
     - cat why/hi2.txt
     - apt install -y -q curl
-    - curl -s -X POST --data-binary @why.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/myfolder-mykey 
+    - curl -s -X POST --data-binary @why.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/why-mykey 
