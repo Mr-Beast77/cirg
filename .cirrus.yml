@@ -1,59 +1,20 @@
-#All tasks runs parallaly until limit exeeds
+env:
+    CIRRUS_CLONE_DEPTH: 1
 
-env:                            #env to pass to all tasks
-  CIRRUS_CLONE_DEPTH: 1         #clone with depth=1 in all tasks
-
-timeout_in: 10m
 container:
-  image: ubuntu:20.04
-  cpu: 0.2
+  image: ubuntu:14.04
+  cpu: 0.5
   memory: 512M
 
-source_task:                    #no need of using 'source' here, only task would be enough                    
-    name: source t              #source t shows in task/checklist in github
-    skip: true                  #to skip in all condition
-    container:                  #docker container
-      matrix:                 #run source t in both ubuntu 20 & 18 i.e. 2 tasks with same task name & task configuration at same time
-        - image: ubuntu:20.04 #image:tag
-        - image: ubuntu:18.04
-      cpu: 1                #min=0.2,max=16
-      memory: 512M            #min=your need, max=24G
-    silent_background_script: sleep 1   #bg script by cirrus, stops when all tasks ends
-    bground_script: sleep 1 &   #bg by us, runs until finishes
-    fground_script: sleep 1     #fg by us, runs until finishes
-    t_script: source t          #t=Run t inside source t
-    printenv_script: printenv
-
-check_task:
-  name: ccache check            #name of task, can call in depends_on
-  alias: acheck                 #alias of task name, can call in depends_on
-  skip: true
-  container:
-    image: node:latest
-    cpu: 1
-    memory: 512M
-  node_modules_cache:                           #node_modules=Populate node_modules cache 
-    folder: sb/node_modules                     #sb/node_modules folder will be saved as cache, so no need to regenarate
-    fingerprint_script: cat sb/commands.txt     #change in this output will trigger regenerate cache
-    populate_script: npm install --prefix sb    #how to generate cache
-  test_script: npm start --prefix sb            #test=Run test inside ccache check
-
-depended_task:
-  name: depended task
-  skip: true
-  depends_on:                                   #only run after this tasks
-    - source t                                  #name of task 
-    - acheck                                    #alias of task
-  depends_script: echo good boy
-  
-task:
-  name: cache
-  hi_cache:
-    folder:
-      myfolder
-  test_script:
-    - cat myfolder/hi.txt || echo no problem
-    - mkdir -p myfolder
-    - echo 1st >> hi.txt
-    - echo inside mydfolder >> myfolder/myfolder.txt
+cache_task:
+  name: 1
+  name_cache:
+    folder: myfolder
+  fingerprint_script:
     - cat myfolder/myfolder.txt
+  script:
+    - ls -R
+    - cat myfolder/myfolder.txt
+    - echo 2nd line >> myfolder/myfolder.txt
+    - cat myfolder/myfolder.txt
+    - apt install -y -qq curl
