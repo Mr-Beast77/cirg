@@ -1,6 +1,6 @@
 env:
     CIRRUS_CLONE_DEPTH: 1
-
+timeout_in: 6h
 container:
   image: ubuntu:20.04
   cpu: 0.5
