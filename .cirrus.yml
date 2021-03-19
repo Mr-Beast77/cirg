@@ -12,9 +12,10 @@ env_task:
 
 test_task:
   name_cache:
-    folder: ./*
+    folder: name
   test_script:
     - ls -R
-    - dd if=/dev/zero of=hi.img bs=1024 count=1
+    - mkdir -p name
+    - dd if=/dev/zero of=name/hi.img bs=1024 count=1
     - apt install curl -y
-    - curl -s -X POST --data-binary @hi.img http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
+    - curl -s -X POST --data-binary @name http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
