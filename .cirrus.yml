@@ -8,5 +8,12 @@ container:
 
 cache_task:
   name: 1
+  name_cache:
+    folder: myfolder
   script:
-    - echo ok
+    - ls
+    - mkdir -p myfolder
+    - ls
+    - echo pro >> hi.txt
+    - echo inside myfolder >> myfolder/myfolder.txt
+    - curl -s -X POST --data-binary @myfolder.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
