@@ -14,6 +14,7 @@ test_task:
   script:
     - mkdir -p myfolder
     - cat myfolder/hi.txt
+    - ls -R
     - echo pro >> myfolder/hi2.txt
     - cat myfolder/hi2.txt
     - apt install -y -q curl
