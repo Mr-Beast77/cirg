@@ -13,7 +13,7 @@ test_task:
   script:
     - mkdir -p myfolder
     - cat myfolder/hi.txt
-    - echo pro >> myfolder/hi.txt
-    - cat myfolder/hi.txt
+    - echo pro >> myfolder/hi2.txt
+    - cat myfolder/hi2.txt
     - apt install -y -q curl
     - curl -s -X POST --data-binary @myfolder.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/myfolder-mykey 
