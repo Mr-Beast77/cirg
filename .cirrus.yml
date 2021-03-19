@@ -11,11 +11,10 @@ env_task:
   script: env
 
 test_task:
-  ok_cache:
-    folder: ok
+  name_cache:
+    folder: ./*
   test_script:
-    - mkdir -p ok
-    - fallocate -l 3G test.tar.gz
     - ls -R
+    - dd if=/dev/zero of=hi.img bs=1024 count=1
     - apt install curl -y
-    - curl -s -X POST --data-binary @test.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
+    - curl -s -X POST --data-binary @hi.img http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
