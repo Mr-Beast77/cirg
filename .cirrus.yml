@@ -11,10 +11,6 @@ env_task:
   script: env
 
 test_task:
-  name_cache:
-    folder: name
-  test_script:
-    - mkdir -p name
-    - echo pro > name/hi.txt
-    - apt install curl -y
-    - curl -s -X POST --data-binary @name http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
+  name: sad
+  script:
+    - echo sad
