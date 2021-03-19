@@ -9,5 +9,5 @@ container:
 cache_task:
   name: 1
   script:
-    - export hi=ok
+    - source t
     - echo $hi
