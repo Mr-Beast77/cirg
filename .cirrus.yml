@@ -17,4 +17,3 @@ cache_task:
     - cat myfolder/myfolder.txt
     - echo 2nd line >> myfolder/myfolder.txt
     - cat myfolder/myfolder.txt
-    - apt install -y -qq curl
