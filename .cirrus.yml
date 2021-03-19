@@ -6,12 +6,7 @@ container:
   cpu: 0.5
   memory: 512M
 
-test_task:
-  name: cache
-  myfolder_cache:
-    folder: why
-    reupload_on_changes: true
+cache_task:
+  name: 1
   script:
-    - ls -R
-    - apt install -y -q curl
-    - curl -s -X POST --data-binary @why.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/why-mykey 
+    - echo ok
