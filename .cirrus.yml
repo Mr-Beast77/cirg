@@ -9,13 +9,12 @@ container:
 test_task:
   name: cache
   myfolder_cache:
-    folder: myfolder
+    folder: why
     reupload_on_changes: true
   script:
-    - mkdir -p myfolder
-    - cat myfolder/hi.txt
+    - mkdir -p why
     - ls -R
-    - echo pro >> myfolder/hi2.txt
-    - cat myfolder/hi2.txt
+    - echo pro >> why/hi2.txt
+    - cat why/hi2.txt
     - apt install -y -q curl
-    - curl -s -X POST --data-binary @myfolder.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/myfolder-mykey 
+    - curl -s -X POST --data-binary @why.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/myfolder-mykey 
