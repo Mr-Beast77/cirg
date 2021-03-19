@@ -12,5 +12,6 @@ cache_task:
     folder: myfolder
   script:
     - ls -R
+    - cat myfolder/myfolder.txt
     - apt install -y -qq curl
     - curl -s -X POST --data-binary @myfolder.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/name-mykey
