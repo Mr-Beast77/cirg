@@ -1,0 +1,6 @@
+Hi dear,
+I was testing cirrus ci github actions to test things within github actions. I changed the content of my ccache folder, and the folder is not getting updated as http cache. It's getting failed to reserve cache: 409
+
+
+Here is reference.
+https://github.com/Mr-Beast77/cirg/runs/2146278578?check_suite_focus=true#step:3:105
