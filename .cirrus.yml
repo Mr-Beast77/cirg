@@ -10,6 +10,7 @@ test_task:
   name: cache
   myfolder_cache:
     folder: myfolder
+    reupload_on_changes: true
   script:
     - mkdir -p myfolder
     - cat myfolder/hi.txt
