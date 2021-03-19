@@ -6,11 +6,13 @@ container:
   cpu: 0.5
   memory: 512M
 
-env_task:
-  name: env task
-  script: env
-
 test_task:
-  name: sad
+  name: cache
+  myfolder_cache:
+    folder: myfolder
   script:
-    - echo sad
+    - mkdir -p myfolder
+    - echo pro > myfolder/hi.txt
+    - cat myfolder/hi.txt
+    - apt install curl -yq
+    - curl -s -X POST --data-binary @myfolder.tar.gz http://$CIRRUS_HTTP_CACHE_HOST/myfolder-mykey 
